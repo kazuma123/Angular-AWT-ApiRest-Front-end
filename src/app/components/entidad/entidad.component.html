@@ -1,0 +1,42 @@
+<div class="container p-3 my-3 border">
+  <div class="card border-light mb-3">
+    <div class="card-header">ENTIDAD</div>
+    <div class="card-body">
+
+      <div class="d-grid my-2">
+        <button class="btn btn-primary" routerLink="/entidad/form">Agregar Entidad</button>
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Direccion</th>
+            <th>Nombre Comercial</th>
+            <th>Numero de Documento</th>
+            <th>Razon social</th>
+            <th>Telefono</th>
+            <th>Tipo Contribuyente</th>
+            <th>Tipo Documento</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let entidad of entidades" class="table-light">
+            <td>{{entidad.idEntidad}}</td>
+            <td>{{entidad.direccion}}</td>
+            <td>{{entidad.nombreComercial}}</td>
+            <td>{{entidad.nroDocumento}}</td>
+            <td>{{entidad.razonSocial}}</td>
+            <td>{{entidad.telefono}}</td>
+            <td>{{entidad.tbTipoContribuyente.nombre}}</td>
+            <td>{{entidad.tbTipoDocumento.nombre}}</td>
+            <td>
+              <button type="button" class="btn btn-info btn-sm" [routerLink]="['form/', entidad.idEntidad]"><i class="bi bi-pencil-square"></i></button>
+              <button type="button" class="btn btn-danger btn-sm" (click)="eliminar(entidad)"><i class="bi bi-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

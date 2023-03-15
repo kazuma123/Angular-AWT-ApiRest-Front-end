@@ -1,0 +1,30 @@
+<div class="container p-3 my-3 border">
+    <div class="card border-light mb-3">
+      <div class="card-header">Tipo de Contribuyente</div>
+      <div class="card-body">
+  
+        <div class="d-grid my-2">
+          <button class="btn btn-primary" routerLink="/tipo_contribuyente/form">Agregar Contribuyente</button>
+        </div>
+  
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contribuyente of tipoContribuyente" class="table-light">
+              <td>{{contribuyente.idTipoContribuyente}}</td>
+              <td>{{contribuyente.nombre}}</td>
+              <td>
+                <button type="button" class="btn btn-info btn-sm" [routerLink]="['form/', contribuyente.idTipoContribuyente]"><i class="bi bi-pencil-square"></i></button>
+                <button type="button" class="btn btn-danger btn-sm" (click)="eliminar(contribuyente)" ><i class="bi bi-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>

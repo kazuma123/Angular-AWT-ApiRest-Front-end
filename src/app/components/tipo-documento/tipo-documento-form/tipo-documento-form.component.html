@@ -1,0 +1,32 @@
+<div class="container p-3 my-3 border">
+    <div class="card border-light mb-3">
+        <div class="card-header">Tipo de Documento</div>
+        <div class="card-body">
+
+            <div class="d-grid my-2">
+                <button class="btn btn-warning" routerLink="/tipo_documento">Volver</button>
+            </div>
+
+            <form action="post" #form="ngForm" (ngSubmit)="tipoDocumento.idTipoDocumento? editar(form) : crear(form)">
+        
+                <div class="mb-3">
+                    <label for="email">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="tipoDocumento.nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email">Descripcion</label>
+                    <input type="text" name="descripcion" id="descripcion" class="form-control" [(ngModel)]="tipoDocumento.descripcion" required >
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Codigo</label>
+                    <input type="text" name="codigo" id="codigo" class="form-control" [(ngModel)]="tipoDocumento.codigo" required>
+                </div>
+        
+                <div class="d-grid">
+                    <button class="btn btn-primary">{{tipoDocumento.idTipoDocumento == null ? 'Crear':'Editar'}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

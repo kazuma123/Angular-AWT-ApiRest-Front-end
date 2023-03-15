@@ -1,0 +1,64 @@
+<div class="container p-3 my-3 border">
+    <div class="card border-light mb-3">
+        <div class="card-header">Tipo de Contribuyente</div>
+        <div class="card-body">
+
+            <div class="d-grid my-2">
+                <button class="btn btn-warning" routerLink="/entidad">Volver</button>
+            </div>
+
+            <form action="post" #form="ngForm" (ngSubmit)="entidad.idEntidad? editar(form) : crear(form)">
+
+                <div class="mb-3">
+                    <label for="email">Direccion</label>
+                    <input type="text" name="direccion" id="direccion" class="form-control"
+                        [(ngModel)]="entidad.direccion" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Nombre Comercial</label>
+                    <input type="text" name="nombreComercial" id="nombreComercial" class="form-control"
+                        [(ngModel)]="entidad.nombreComercial" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Nro Documento</label>
+                    <input type="text" name="nroDocumento" id="nroDocumento" class="form-control"
+                        [(ngModel)]="entidad.nroDocumento" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Razon Social</label>
+                    <input type="text" name="razonSocial" id="razonSocial" class="form-control"
+                        [(ngModel)]="entidad.razonSocial" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email">Telefono</label>
+                    <input type="text" name="telefono" id="telefono" class="form-control" [(ngModel)]="entidad.telefono"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="my-1 mr-2" for="tbTipoContribuyente">Tipo de Contribuyente</label>
+                    <select [(ngModel)]="entidad.tbTipoContribuyente" class="custom-select my-1 mr-sm-2" id="tbTipoContribuyente" name="tbTipoContribuyente" required>
+                        <option selected>--- Seleccionar un contribuyente ---</option>
+                        <option *ngFor="let contribuyente of tipoContribuyente" [ngValue]="contribuyente">{{contribuyente.nombre}}</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="my-1 mr-2" for="tbTipoDocumento">Tipo de Documento</label>
+                    <select [(ngModel)]="entidad.tbTipoDocumento" class="custom-select my-1 mr-sm-2" id="tbTipoDocumento" name="tbTipoDocumento" required>
+                        <option selected>--- Seleccionar un tipo de documento ---</option>
+                        <option *ngFor="let documento of tipoDocumento" [ngValue]="documento">{{documento.nombre}}</option>
+                    </select>
+                </div>
+
+                <div class="d-grid">
+                    <button class="btn btn-primary">{{entidad.idEntidad == null ? 'Crear':'Editar'}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
